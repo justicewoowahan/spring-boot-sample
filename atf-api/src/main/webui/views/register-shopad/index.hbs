@@ -1,0 +1,443 @@
+<div class="ad-req-wrapper">
+    <div class="ad-form-wrapper">
+        <div class="box row">
+            <div class="box-title">
+                <h5>사업자 계약 조회</h5>
+            </div>
+            <div class="box-content">
+                <table class="table table-horizontal borderless table-left">
+                    <thead>
+                    <colgroup>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                    </colgroup>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>업주</th>
+                        <td>
+
+                            <div class="input-group">
+                                <input class="form-control" data-role="bind"
+                                       readonly="readonly"
+                                       data-name="shopOwnerName" data-type="input-text" value="{{shopOwnerName}}"
+                                       placeholder="업주"/>
+                                <span class="input-group-btn">
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary"
+                                                id="btn-search-shop-owner">검색</button>
+                                    </span>
+                            </div>
+                        </td>
+                        <th>계약서</th>
+                        <td>
+                            <div class="input-group">
+                                <!--<input type="text" id="contract" name="contract" class="form-control"-->
+                                <!--placeholder="계약서"/>-->
+                                <button type="button" class="btn btn-default" id="btn-view-contract">계약서 보기</button>
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary"
+                                                id="btn-search-contract">검색</button>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box row">
+            <div class="box-title">
+                <h5>거래 정보 이력</h5>
+            </div>
+            <div class="box-content">
+
+                <table class="table table-horizontal borderless table-left">
+                    <thead>
+                    <colgroup>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                    </colgroup>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>결제일</td>
+                        <td>
+                            <div>
+                                <div data-role="bind" data-type="input-radio" data-name="withdrawalDates"
+                                     data-ref="withdrawalDates"></div>
+                                <p>일반광고를 진행할 경우 7월 11일부터 광고를 시작합니다.</p>
+                            </div>
+                        </td>
+                        <td>결제 수단</td>
+                        <td>
+                            <div>
+                                <select class="form-control" data-role="bind" data-name="paymentMethods"
+                                        data-type="select"
+                                        data-ref="paymentMethods" data-ref-form-restore="true"
+                                        id="paymentMethodId"></select>
+                                <button type="button" class="btn btn-primary btn-sm" id="btn-register-payment">결제 수단
+                                    등록하기
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>빠른광고</td>
+                        <td>
+                            <div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="useQuickAd" type="checkbox" data-role="bind" id="useQuickAd"
+                                               data-name="useQuickAd" data-toggle="toggle" data-height="30px"
+                                               data-width="100px"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <td>광고 시작 요청일</td>
+                        <td>
+                            <div data-role="bind" data-type="input-radio" data-name="creditCardTypes"
+                                 data-ref="creditCardTypes"></div>
+
+                            <div data-name="adStartDate" data-role="bind" data-type="datepicker" data-ref="adStartDate"></div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div> <!--ad-form-wrapper-->
+        <div class="ad-form-split-left">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-title ad-info-form-title">
+                        <div class="col-xs-7"><h5>업소 정보</h5></div>
+                        <div id="added-shops-wrapper" class="col-xs-3">
+                            <select id="shopList" data-role="bind"
+                                    data-name="shopList" data-type="selectize"
+                                    data-ref="shopList" data-target="currentShopId"
+                                    data-ref-form-restore="true"></select>
+                            <input type="hidden" id="currentShopId"/>
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="button" id="btn-shop-manage" class="btn btn-primary">관리</button>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <table class="table table-horizontal borderless table-left">
+                                <thead>
+                                <colgroup>
+                                    <col width="15%"/>
+                                    <col width="35%"/>
+                                    <col width="15%"/>
+                                    <col width="35%"/>
+                                </colgroup>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>업소명</th>
+                                    <td>
+                                        <div>
+                                            <span data-role="bind" data-name="shopName" value="{{shopName}}"></span>
+                                        </div>
+                                    </td>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>업소 카테고리</th>
+                                    <td><input class="form-control" data-role="bind"
+                                               readonly="readonly"
+                                               data-name="shopMenuCategoryName" data-type="input-text"
+                                               value="{{shopMenuCategoryName}}"
+                                               placeholder="업소카테고리"/></td>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>업소 실주소</th>
+                                    <td><input class="form-control" data-role="bind"
+                                               readonly="readonly"
+                                               data-name="shopAddress" data-type="input-text" value="{{shopAddress}}"
+                                               placeholder="업소 실주소"/></td>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>업소</th>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">썸네일 보기</button>
+                                    </td>
+                                    <th>업소 스마트메뉴</th>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">스마트메뉴 보기</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+
+                    <div class="ad-info-form-wrapper">
+                        <div class="box-title ad-info-form-title">
+                            <div class="col-xs-12"><h5>광고 정보 입력</h5></div>
+                        </div>
+                        <div class="box-content">
+                            <div class="form-horizontal">
+                                <table class="table table-horizontal borderless table-left">
+                                    <colgroup>
+                                        <col width="15%"/>
+                                        <col width="35%"/>
+                                        <col width="15%"/>
+                                        <col width="35%"/>
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th>광고 상품명</th>
+                                        <td>
+                                            <div class="form-group">
+                                                <select id="shopAdKindId" class="form-control" data-role="bind"
+                                                        data-name="shopAdKindsList" data-type="select"
+                                                        data-ref="shopAdKindsList"
+                                                        data-ref-form-restore="true"></select>
+                                            </div>
+                                        </td>
+                                        <th>신규 아이콘</th>
+                                        <td>
+                                            <div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input name="enable-new-icon" id="enableNewIcon" type="checkbox"
+                                                               data-toggle="toggle" data-height="30px"
+                                                               data-width="100px"/>
+
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>광고 업소명</th>
+                                        <td>
+                                            <div class="form-group">
+                                                <input id="adShopName" class="form-control" data-role="bind"
+                                                       data-name="adShopName"
+                                                       data-ref="adShopName" data-type="input-text"
+                                                       value="{{shopName}}"/>
+                                            </div>
+                                        </td>
+                                        <th>광고 카테고리</th>
+                                        <td>
+                                            <div class="form-group">
+                                                <select class="form-control"
+                                                        id="adShopMenuCategoryId"
+                                                        data-role="bind" data-name="adShopMenuCategoryName"
+                                                        data-type="select" data-ref="adShopMenuCategoryName"
+                                                        data-ref-form-restore="true"></select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>광고 주소</th>
+                                        <td colspan="4">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <button type="button" id="btn-search-address"
+                                                            class="btn btn-primary btn-sm  control-label pull-left">주소찾기
+                                                    </button>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" data-role="bind"
+                                                               data-ref="fullTextJibun" data-name="fullTextJibun"
+                                                               data-type="input-text"
+                                                               value="{{fullTextJibun}}" id="address"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-5">
+                                                        <label for="adProduct" class="col-sm-2 control-label">위도</label>
+                                                        <div class="col-md-5">
+                                                            <div class="form-group">
+                                                                <input class="form-control" data-role="bind"
+                                                                       id="latitude"
+                                                                       data-ref="latitude" data-name="latitude"
+                                                                       data-type="input-text"
+                                                                       value="{{latitude}}"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-5">
+                                                        <label for="contract" class="col-sm-2 control-label">경도</label>
+                                                        <div class="col-md-5">
+                                                            <div class="form-group">
+                                                                <input class="form-control" data-role="bind"
+                                                                       id="longitude"
+                                                                       data-ref="longitude" data-name="longitude"
+                                                                       data-type="input-text"
+                                                                       value="{{longitude}}"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3">
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label>광고 신청 목록의 광고 보기</label>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="rapid-ad" id="rapid-ad" type="checkbox" data-toggle="toggle"
+                                                   data-height="30px" data-width="100px"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-9 map-wrapper">
+
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                        <li>
+                                            <input type="checkbox">전체
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="pull-right ad-regist-form-wrapper">
+                                <button type="button" class="btn btn-danger" id="btn-init">작성 초기화</button>
+                                <button type="button" class="btn btn-default" id="btn-add-req-list">신청 목록에 추가</button>
+                                <button type="button" class="btn btn-default" id="btn-edit">수정</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box row ad-list-box-wrapper">
+            <div class="box-title">
+                <h5>업소별 광고 신청 목록 <span data-role="bind" data-name="shopName"></span></h5>
+            </div>
+            <div class="box-content">
+                <div id="added-ads-wrapper"></div>
+                <div class="price-info-wrapper text-right form-horizontal">
+                    <div class="price-wrapper">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <span>월 정기결제 금액</span><span data-role="bind" data-name="totalAdPriceOfShop"></span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span>빠른 광고 총 결제 예상 금액</span><span>0원</span>
+                        </div>
+                    </div>
+                    <div class="payment-guide">
+                        <p>결제 예상 금액은 빠른광고 요청일을 기준으로 계산합니다. 해당 금액은 광고 승인 시점에 따라 달라질 수 있습니다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box row ad-list-box-wrapper">
+            <div class="box-title">
+                <h5>전체 광고 신청 내역</h5>
+            </div>
+            <div class="box-content">
+                <div class="">
+                    <table class="table table-horizontal borderless table-left text-center">
+                        <colgroup>
+                            <col width="20%"/>
+                            <col width="20%"/>
+                            <col width="20%"/>
+                            <col width="20%"/>
+                            <col width="20%"/>
+                        </colgroup>
+                        <thead>
+                        <th>신청 업소</th>
+                        <th>울트라콜 신청</th>
+                        <th>신규아이콘 신청</th>
+                        <th>월 정기결제 총 금액</th>
+                        <th>빠근 광고 총 결제 금액</th>
+                        </thead>
+                        <tbody>
+                        <td><span data-role="bind" data-name="shopCount">0개</span></td>
+                        <td><span data-role="bind" data-name="totalAdCount">0개</span></td>
+                        <td><span data-role="bind" data-name="">0개</span></td>
+                        <td><span data-role="bind" data-name="totalAdPrice">0원</span></td>
+                        <td><span data-role="bind" data-name="totalQuickAdPrice">0원</span></td>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="req-info-wrapper">
+                    <div class="col-sm-2">
+                        요청사항 입력
+                    </div>
+                    <div class="col-sm-10">
+                        <div data-role="bind" rows="4" cols="120" data-type="text-area" data-name="adminComment"
+                             id="adminComment" value=""></div>
+                    </div>
+
+                    <div class="pull-right button-wrapper">
+                        <button class="btn btn-primary btn-submit" type="button" id="btn-submit-shopad">광고 신청
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="address-modal-wrap"></div>

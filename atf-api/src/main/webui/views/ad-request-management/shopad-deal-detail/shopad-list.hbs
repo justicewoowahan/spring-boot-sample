@@ -1,0 +1,80 @@
+<div class="box row">
+    <div class="box-title">
+        <h4>광고 신청 목록</h4>
+    </div>
+    <div class="box-content">
+        <div class="row table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-default">
+                <th>번호</th>
+                <th>광고 업소명</th>
+                <th>썸네일</th>
+                <th>스마트메뉴</th>
+                <th>슈퍼리스트</th>
+                <th>광고중</th>
+                <th>광고 카테고리</th>
+                <th>광고 주소</th>
+                <th>광고 상품명</th>
+                <th>월 결제금액(원)</th>
+                <th>빠른광고 금액(원)</th>
+                </thead>
+                <tbody class="text-center">
+                {{#each shopads}}
+                    <tr>
+                        <td>{{shopAdId}}</td>
+                        <td>{{shopName}}</td>
+                        <td>Y</td>
+                        <td>Y</td>
+                        <td>N</td>
+                        <td>N</td>
+                        <td>{{shopCategoryMenuName}}</td>
+                        <td>{{address}}</td>
+                        <td>{{shopAdKindName}}</td>
+                        <td>{{price}}</td>
+                        <td>{{price}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <div class="row price-info-wrapper text-right">
+                <div class="row price-wrapper">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-3">
+                        <span>월 결제 금액</span><span data-role="bind" data-name="totalPrice"></span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>빠른 광고 총 결제 금액</span><span>0원</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box row">
+    <div class="box-title">
+        <h4>광고 정보</h4>
+    </div>
+    <div class="box-content">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-2 control-label">요청사항</label>
+                <div class="col-xs-10">
+                    <div data-role="bind" rows="4" cols="120" data-type="text-area" data-name="comment"
+                         id="comment" value="{{comment}}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-horizontal pull-right">
+            <div id="buttonWrap" data-role="bind" data-type="element-visible" data-name="WAIT_FOR_APPROVAL_VISIBLE" value="{{WAIT_FOR_APPROVAL_VISIBLE}}">
+                <button type="button" class="btn btn-default btn-approve">승인</button>
+                <button type="button" class="btn btn-default btn-reject">반려</button>
+                <button type="button" class="btn btn-default btn-cancel">신청취소</button>
+            </div>
+
+            <div id="buttonWrap" data-role="bind" data-type="element-visible" data-name="REJECTED_VISIBLE" value="{{REJECTED_VISIBLE}}">
+                <button type="button" class="btn btn-default btn-cancel">신청취소</button>
+                <button type="button" class="btn btn-default btn-re-request">광고 재신청</button>
+            </div>
+        </div>
+    </div>
+</div>

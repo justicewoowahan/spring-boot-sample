@@ -1,0 +1,49 @@
+<table class="table table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th>계약거래번호</th>
+        <th>사업자</th>
+        <th>업소명</th>
+        <th>요청 광고 개수</th>
+        <th>결제일</th>
+        <th>신청일</th>
+        <th>신청자</th>
+        <th>처리자</th>
+        <th>등록일</th>
+    </tr>
+    </thead>
+    <tbody class="text-center">
+    {{#each deals}}
+        <tr>
+            <td>
+                {{id}}
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{shopOwnerName}} [{{shopId}}]</a>
+                <br> <a href="#" class="btn-view" data-id="{{id}}">{{shopAddress}}</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{shopOwnerName}}</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{shopAdCount}} 개</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{withdrawalDate.day}}일</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{modifiedDate}}</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{dsmAuditor.userId}}({{dsmAuditor.name}}/{{dsmAuditor.userId}})</a>
+            </td>
+            <td>
+                <a class="btn-view" data-id="{{id}}">{{dsmAuditor.userId}}({{dsmAuditor.name}}/{{dsmAuditor.userId}})</a>
+            </td>
+            <td>
+                {{registrationDate}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

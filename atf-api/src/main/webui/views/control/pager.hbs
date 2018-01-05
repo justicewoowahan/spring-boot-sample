@@ -1,0 +1,40 @@
+<!-- 페이지네이션 -->
+<nav class="text-center">
+    <ul class="pagination">
+        <!--<li class="page-item">-->
+        <!--<a class="page-link" href="#" aria-label="First">-->
+        <!--<span aria-hidden="true">&laquo;</span>-->
+        <!--<span class="sr-only">First</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        {{#if prev}}
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" data-page="prev">
+                    <span aria-hidden="true">&lsaquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#each numbers}}
+            <li class="page-item{{#if active}} active{{/if}}"><a class="page-link" href="#" data-page="{{num}}"{{#unless active}} data-paging="true"{{/unless}}>{{num}}</a></li>
+        {{/each}}
+        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">4</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">5</a></li>-->
+        {{#if next}}
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" data-page="next">
+                    <span aria-hidden="true">&rsaquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        {{/if}}
+        <!--<li class="page-item">-->
+        <!--<a class="page-link" href="#" aria-label="Last">-->
+        <!--<span aria-hidden="true">&raquo;</span>-->
+        <!--<span class="sr-only">Last</span>-->
+        <!--</a>-->
+        <!--</li>-->
+    </ul>
+</nav>

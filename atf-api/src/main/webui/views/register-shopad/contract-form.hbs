@@ -1,0 +1,27 @@
+<div class="form-horizontal row">
+    <div class="form-group col-xs-6">
+        <label class="col-xs-3 control-label">업주</label>
+        <div class="form-group form-inline">
+            <input class="form-control col-xs-3" data-role="bind"
+                   readonly="readonly"
+                   data-name="shopOwnerName" data-type="input-text" value="{{shopOwnerName}}"
+                   placeholder="업주"/>
+            <button type="button" class="btn btn-primary"
+                    id="btn-search-shop-owner">검색
+            </button>
+        </div>
+    </div>
+    <div class="form-group  col-xs-6">
+        <label class="col-xs-3 control-label">계약서</label>
+        <div class="form-group form-inline">
+            <button type="button" class="btn btn-default" id="btn-view-contract"
+                    data-type="element-visible" data-role="bind" data-name="existContract"
+                    class="col-xs-3"
+                    data-ref="{{existContract}}">계약서 보기
+            </button>
+            <button type="button" class="btn btn-primary"
+                    id="btn-search-contract">검색
+            </button>
+        </div>
+    </div>
+</div>

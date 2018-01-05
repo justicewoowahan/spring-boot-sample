@@ -1,0 +1,51 @@
+<div class="popup container">
+    <div class="col-xs-6">
+        <div>
+            <div class="modal-header">
+                <h4 class="modal-title">선택된 업소리스트</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="shop-list-of-owner col-xs-6">
+                    <h5>업소 검색</h5>
+                    <div>
+                        <span class="" data-role="bind" data-name="shopOwnerName"></span>
+                        <span class="" data-role="bind" data-name="shopOwnerId"></span>
+                    </div>
+                    <div class="">
+                        <div class="shop-list-wrapper"></div>
+                    </div>
+                </div>
+                <div class="col-xs-1 middle-button-wrapper">
+                    <div class="">
+                        <button type="button" id="btn-add-shop" class="btn btn-sm btn-primary">추가>></button>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <h5>선택된 업소 목록</h5>
+                    <div>
+                        <span class="" data-role="bind" data-name="shopOwnerName"></span>
+                        <span class="" data-role="bind" data-name="shopOwnerId"></span>
+                        <div class="row">
+                            <div class="form-group">
+                                <input type="text" class="search-text" id="shopName" placeholder="업소명" data-role="bind"
+                                       data-name="shopName"/>
+                                <button type="button" id="btn-clear-search-condition">초기화</button>
+                            </div>
+                            <div class="added-shop-list-wrapper"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <div class="text-right">
+                    <button id="btn-delete" type="button" class="btn btn-delete">삭제</button>
+                    <button id="btn-save" type="button" class="btn btn-default">완료</button>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,48 @@
+spring.profiles.active: default
+spring.jackson.date-format: yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone: Asia/Seoul
+
+spring.datasource:
+  platform: mysql
+  url: jdbc:mysql://b2b-dev-maria.ckwx7ipq1exp.ap-northeast-2.rds.amazonaws.com:3306/palos??useUnicode=true&characterEncoding=utf8
+  username: palos
+  password: palos1234
+  initialize: true
+  driverClassName: com.mysql.jdbc.Driver
+
+  ## Pool Info ##
+  tomcat:
+    maxActive: 10
+    initialSize: 10
+    minIdle: 10
+    testOnBorrow: true
+    validationQuery: select 1
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 600000 #10 min
+    minEvictableIdleTimeMillis: 600000  #10 min
+    validationQueryTimeout: 5
+    continue-on-error: false
+
+# JPA Hibernate
+spring.jpa:
+  database: mysql
+  hibernate:
+    ddl-auto: update
+    naming:
+      physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      format_sql: true
+      use_sql_comments: true
+      show_sql: false
+  show_sql: false
+
+store.api:
+  url: http://beta-store.api.woowa.in
+
+esign.api:
+  url: https://betaesign.baemin.com
+
+juso.url: http://woowahan-juso-dev-env.ap-northeast-2.elasticbeanstalk.com
+

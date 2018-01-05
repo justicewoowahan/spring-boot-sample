@@ -1,0 +1,51 @@
+<table class="table table-bordered">
+    <thead>
+        <colgroup>
+            <col style="width: 30%;">
+            <col style="width: 70%;">
+        </colgroup>
+    </thead>
+    <tbody>
+    <tr>
+        <th>등록구분</th>
+        <td>신규등록</td>
+    </tr>
+    <tr>
+        <th>결제방법</th>
+        <td>
+            <input type="radio" id="paymentMethodBankAccount" name="paymentMethod" value="BANK_ACCOUNT" checked="checked"/><label
+                for="paymentMethodBankAccount">은행계좌</label>
+            <input type="radio" id="paymentMethodCreditCard" name="paymentMethod" value="CREDIT_CARD"/><label
+                for="paymentMethodCreditCard">신용카드</label>
+        </td>
+    </tr>
+    <tr>
+        <th>은행명</th>
+        <td>
+            <select class="form-control" data-role="bind" data-name="banks" data-type="select"
+                    data-ref="banks" data-ref-form-restore="true"
+                    id="bankId"></select>
+        </td>
+    </tr>
+    <tr>
+        <th>계좌번호</th>
+        <td><input type="text" id="bankNameAccountNumber" name="bankNameAccountNumber"/></td>
+    </tr>
+    <tr>
+        <th>실명번호<br/>
+            (주민번호 앞자리 or 사업자번호)
+        </th>
+        <td><input type="text" id="authNumber" name="authNumber"/></td>
+    </tr>
+    <tr>
+        <th>예금주명</th>
+        <td><input type="text" id="ownerName" name="ownerName"/></td>
+    </tr>
+    <tr>
+        <th>동의파일</th>
+        <td>
+            <button type="button" class="btn btn-primary">파일선택</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

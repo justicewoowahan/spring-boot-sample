@@ -1,0 +1,61 @@
+<div class="box row">
+    <div class="box-title">
+        <h4>계약 거래 정보</h4>
+    </div>
+    <div class="box-content">
+        <div class="form-horizontal">
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label">결제일</label>
+                <div class="col-sm-6">
+                    <div data-role="bind" data-type="input-radio" data-name="withdrawalDates"
+                         data-ref="withdrawalDates"></div>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label">결제 수단</label>
+                <div class="col-sm-6">
+                    <input class="form-control" data-role="bind"
+                           readonly="readonly"
+                           data-name="paymentMethod" data-type="input-text" value="{{paymentMethod}}"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label">생년월일</label>
+                <div class="col-sm-6">
+                    <input class="form-control" data-role="bind"
+                           readonly="readonly"
+                           data-name="shopOwnerBirthDate" data-type="input-text" value="2017.08.03"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label for="btn-regist-payment" class="col-sm-3 control-label">출금동의서</label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary">출금동의서 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label">빠른광고</label>
+                <div class="col-sm-3">
+                    <label class="switch">
+                        <input name="rapid-ad" id="rapid-ad" type="checkbox"/>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label for="btn-regist-payment" class="col-sm-3 control-label date">광고 시작<br/> 요청일</label>
+                <div class="col-sm-6">
+                    <input  class="form-control" data-role="bind"
+                            readonly="readonly"
+                            data-name="startDate" data-type="input-text" value="2017.08.03">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

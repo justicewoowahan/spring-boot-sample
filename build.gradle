@@ -1,0 +1,212 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def entityProjects = [
+                      project(':atf-service')]
+
+ext {
+    slf4jVersion = '1.7.25'
+    queryDslVersion='4.1.4'
+    javaVersion = '1.8'
+    swaggerVersion = '2.6.0'
+    swaggerAnnotationVersion = '1.5.10'
+    logBackVersion = '1.2.3'
+    modelMapperVersion = '1.0.0'
+    lombokVersion = '1.16.16'
+    hibernateValidatorVersion = '5.4.1.Final'
+    httpClientVersion = '4.5.3'
+    httpCoreVersion = '4.4.5'
+    woowahanJusoClient = '1.9-SNAPSHOT'
+    mockitoVersion = '1.10.19'
+    hyosungCmsFmsVersion = '1.0.0'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+buildscript {
+    def nodePluginVersion = '1.2.0'
+
+    repositories {
+        mavenCentral()
+        maven { url "http://nexus.woowa.in/content/groups/public/" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+        classpath "com.moowork.gradle:gradle-node-plugin:$nodePluginVersion"
+        classpath "com.smokejumperit.gradle.license:Gradle-License-Report:0.0.2.1"
+    }
+}
+
+configure(entityProjects) {
+    apply plugin: 'java'
+
+    description = "atf entity project"
+
+    dependencies {
+        compile("com.fasterxml.jackson.core:jackson-databind")
+        compile("org.projectlombok:lombok:$lombokVersion")
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'maven'
+    apply plugin:'license-report'
+
+    group 'in.woowa.atf'
+    version '1.0.0-SNAPSHOT'
+
+    sourceSets {
+        integrationTest {
+            java {
+                compileClasspath += main.output + test.output
+                runtimeClasspath += main.output + test.output
+                srcDir file('src/integration-test/java')
+            }
+            resources.srcDir file('src/integration-test/resources')
+            resources.srcDir file('src/webapp')
+        }
+    }
+
+    repositories {
+        maven { url "http://nexus.woowa.in/content/groups/public" }
+    }
+
+    dependencyManagement {
+        imports {
+        }
+    }
+
+    targetCompatibility = javaVersion
+    sourceCompatibility = javaVersion
+    compileJava.options.encoding = 'UTF-8'
+
+    dependencies {
+        compile("org.projectlombok:lombok:$lombokVersion")
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile 'com.jayway.jsonpath:json-path:2.0.0'
+        compile("javax.inject:javax.inject:1")
+//        integrationTestCompile('org.assertj:assertj-core:3.4.1')
+    }
+
+    configurations {
+        all*.exclude group: 'commons-logging', module: 'commons-logging' // replaced with jcl-over-slf4j
+        all*.exclude group: 'log4j', module: 'log4j' // replaced with log4j-over-slf4j
+
+        all*.exclude module: 'hsqldb'
+        all*.exclude module: 'slf4j-log4j12'
+
+        integrationTestCompile.extendsFrom testCompile
+        integrationTestRuntime.extendsFrom testRuntime
+    }
+
+    //spring boot project info
+    processResources {
+        filesMatching('application.yml') {
+            expand(project.properties)
+        }
+    }
+
+    task integrationTest(type: Test) {
+        testClassesDir = sourceSets.integrationTest.output.classesDir
+        classpath = sourceSets.integrationTest.runtimeClasspath
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: 'http://nexus.woowa.in/content/repositories/releases')
+                snapshotRepository(url: 'http://nexus.woowa.in/content/repositories/snapshots')
+            }
+        }
+    }
+}
+
+
+project('atf-service') {
+    description = "atf service"
+    bootRepackage.enabled = false
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('com.google.code.gson:gson:2.8.1')
+        compile('com.h2database:h2')
+        compile("org.projectlombok:lombok:$lombokVersion")
+        compile('org.apache.commons:commons-lang3:3.6')
+
+        compile("org.apache.httpcomponents:httpclient:$httpClientVersion")
+        compile("org.modelmapper:modelmapper:$modelMapperVersion")
+        compile('org.springframework.boot:spring-boot-starter-validation')
+        compile("org.projectlombok:lombok:$lombokVersion")
+        compile("org.hibernate:hibernate-validator:${hibernateValidatorVersion}")
+        compile('org.apache.commons:commons-lang3:3.6')
+
+        compile("com.woowahan.juso:juso-client-transform:${woowahanJusoClient}")
+        compile("com.woowahan.juso:juso-client:${woowahanJusoClient}")
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
+
+project('atf-api') {
+    description = "atf api server"
+    bootRepackage.enabled = false
+    apply plugin: 'com.moowork.node'
+    apply plugin: 'war'
+
+
+    war {
+        from('src/main/resources') {
+            into('WEB-INF/classes')
+        }
+        from('src/main/ebextensions') {
+            into('.ebextensions')
+        }
+    }
+
+    dependencies {
+        compile project(':atf-service')
+
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-tomcat')
+        compile('org.springframework.boot:spring-boot-devtools')
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+
+        compile("io.springfox:springfox-swagger-ui:$swaggerVersion")
+        compile("io.springfox:springfox-swagger2:$swaggerVersion")
+
+        compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.0")
+
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+
+}
+
+

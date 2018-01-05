@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="form-inline">
+        <div class="form-group">
+            <input type="text" class="search-text" id="shopId" placeholder="업소번호"/>
+            <input type="text" class="search-text" id="telNo" placeholder="전화번호"/>
+            <!--<input type="text" class="search-text" id="shopOwnerMobile" placeholder="업주휴대폰번호"/>-->
+            <!--<input type="text" class="search-text" id="shopOwnerBizNo" placeholder="업주사업자번호"/>-->
+            <input type="text" class="search-text" id="shopOwnerId" placeholder="업주번호" data-name="shopOwnerId" data-role="bind" data-type="input-text" />
+            <!--<input type="text" class="search-text" id="memId" placeholder="회원아이디"/>-->
+            <!--<input type="text" class="search-text" id="memNo" placeholder="회원번호"/>-->
+        </div>
+        <button id="btn-shop-search" type="button" class="btn btn-primary">
+            <i class="fa fa-search"></i> 검색
+        </button>
+    </div>
+    <p class="table-top-result" data-role="bind" data-name="totalCount" data-type="template"
+       data-key="검색 업소 수 : ${count}">검색 업소 수 : 0</p>
+
+    <table class="table table-bordered">
+        <colgroup>
+            <col width="5%">
+            <col width="15%">
+            <col width="15%">
+            <col width="45%">
+            <col width="20%">
+        </colgroup>
+        <thead class="thead-default">
+        <tr>
+            <th><label for="selectAllShop"><input type="checkbox" id="selectAllShop"/>전체</label></th>
+            <th>업소번호</th>
+            <th>업소</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+        </thead>
+        <tbody id="tbl-shop">
+        <tr data-role="bind" data-name="isEmpty" data-type="show">
+            <td colspan="5">
+                <p class="comment">검색할 업소를 검색창에 입력해주세요.</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pager-container"></div>
+</div>

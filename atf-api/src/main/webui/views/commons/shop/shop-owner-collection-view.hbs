@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="form-inline">
+        <div class="form-group">
+            <table class="table table-bordered boarderless">
+                <tbody>
+                    <tr>
+                        <td>업주번호</td>
+                        <td><input type="text" class="search-text" id="shopOwnerId" placeholder="업주번호"/></td>
+                        <td>상호</td>
+                        <td><input type="text" class="search-text" id="shopOwnerName" placeholder="상호"/></td>
+                        <td>사업자 성명</td>
+                        <td><input type="text" class="search-text" id="name" placeholder="사업자 성명"/></td>
+                    </tr>
+                    <tr>
+                        <td>사업자번호</td>
+                        <td><input type="text" class="search-text" id="bizNo" placeholder="사업자번호"/></td>
+                        <td>휴대전화번호</td>
+                        <td><input type="text" class="search-text" id="mobileNo" placeholder="사업자번호"/></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="btn-search" type="button" class="btn btn-primary">
+            <i class="fa fa-search"></i> 검색
+        </button>
+    </div>
+    <p class="table-top-result" data-role="bind" data-name="totalCount" data-type="template"
+       data-key="검색 업주 수 : ${totalCount}">검색 업주 수 : 0</p>
+`
+    <table class="table table-bordered">
+        <colgroup>
+            <col width="15%">
+            <col width="15%">
+            <col width="30%">
+            <col width="20%">
+            <col width="20%">
+        </colgroup>
+        <thead class="thead-default">
+        <tr>
+            <th>업주번호</th>
+            <th>상호</th>
+            <th>사업자 성명</th>
+            <th>사업자번호</th>
+            <th>휴대전화번호</th>
+        </tr>
+        </thead>
+        <tbody id="tbl-shop-owner">
+        <tr data-role="bind" data-name="isEmpty" data-type="show">
+            <td colspan="5">
+                <p class="comment">검색할 업주를 검색창에 입력해주세요.</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pager-container"></div>
+</div>

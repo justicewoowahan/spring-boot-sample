@@ -1,0 +1,72 @@
+<main id="main" class="container-fluid side-nav-layout">
+  <nav class="side-nav side-nav-on" id="sidenav">
+    <ul class="nav-list">
+      {{#each menuDepth2}}
+        <li><a href="{{url}}">{{label}}</a></li>
+      {{/each}}
+      <li>
+        <a class="depth" data-toggle="collapse" data-parent="#sidenav" href="#shopad/create" aria-controls="sub01">광고 등록</a>
+        <ul class="subnav-list collapse" id="sub01">
+          <li>
+            <a class="depth" data-toggle="collapse" href="#third01" aria-controls="third01">second depth</a>
+            <ul class="thirdnav-list collapse" id="third01">
+              <li><a href="#">third-nav</a></li>
+              <li><a href="#">third-nav</a></li>
+              <li><a href="#">third-nav</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">test nav</a>
+          </li>
+          <li>
+            <a href="#">test nav</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="depth" data-toggle="collapse" data-parent="#sidenav" href="#shopad/approve" aria-controls="sub02">광고 승인</a>
+        <ul class="subnav-list collapse" id="sub02">
+          <li>
+            <a class="depth" data-toggle="collapse" href="#third02" aria-controls="third02">second depth</a>
+            <ul class="thirdnav-list collapse" id="third02">
+              <li><a href="#ad-confirm-management">광고 신청 승인 관리</a></li>
+              <li><a href="#">third-nav</a></li>
+              <li><a href="#">third-nav</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">test nav</a>
+          </li>
+          <li>
+            <a href="#">test nav</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div id="content" class="wrapper">
+    <nav class="navbar navbar-fixed-top">
+      <button type="button" class="navbar-toggle">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="navbar-header">
+        <!-- 사이트 제목 -->
+        <a class="navbar-brand" href="#">Palos</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav navi-list">
+          {{#each menuDepth1}}
+            <li><a href="{{url}}">{{label}}</a></li>
+          {{/each}}
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </nav>
+    <div class="main-contents"></div>
+  </div>
+</main>

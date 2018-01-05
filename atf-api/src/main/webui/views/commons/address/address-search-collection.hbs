@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="row">
+        <div class="form-inline">
+            <div class="form-group">
+                <select class="form-control" data-role="bind" data-name="sido" data-type="select">
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" data-role="bind" data-name="sigungu" data-type="select">
+                    <option value="">중분류</option>
+                </select>
+            </div>
+            <input id="txt-address" type="text" class="form-control" placeholder="지번주소 혹은 도로명 주소 입력">
+            <button id="btn-search" type="button" class="btn btn-primary">
+                <i class="fa fa-search"></i> 검색
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <p class="table-top-result" data-role="bind" data-name="totalCount" data-type="template"
+           data-key="검색 주소 수 : ${count}">검색 주소 수 : 0</p>
+
+        <table class="table table-bordered">
+            <colgroup>
+                <col width="45px">
+                <col width="*">
+            </colgroup>
+            <thead class="thead-default">
+            <tr>
+                <th colspan="2">검색결과</th>
+            </tr>
+            </thead>
+            <tbody id="tbl-address">
+            <tr data-role="bind" data-name="isEmpty" data-type="show">
+                <td colspan="2">
+                    <p class="comment">검색할 주소를 검색창에 입력해주세요.</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pager-container"></div>
+    </div>
+    <div class="col-xs-6 pull-right">
+        <table class="table table-bordered">
+            <colgroup>
+                <col width="100px">
+                <col width="*">
+            </colgroup>
+            <tbody class="thead-default">
+            <tr>
+                <th><span class="sr-only">필수</span>주소 *</th>
+                <td class="left" data-role="bind"
+                    data-name="selectedFullTextJibun">{{selectedAddress.fullTextJibun}}</td>
+            </tr>
+            <tr>
+                <th><span class="sr-only">필수</span>상세주소 *</th>
+                <td class="left"><input id="txt-addr" type="text" class="form-control" placeholder="상세주소 입력">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <button id="btn-submit" type="button" class="btn btn-black btn-block">주소 적용하기 <i
+                    class="fa fa-arrow-circle-right"></i></button>
+        </div>
+    </div>
+</div>

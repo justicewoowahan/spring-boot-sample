@@ -1,0 +1,108 @@
+<div class="main-contents">
+    <div><!-- 컨텐츠 헤더 -->
+        <div class="row content-header">
+            <h2>광고 신청 승인 관리</h2>
+            <ol class="breadcrumb">
+                <!--<li><a href="#">광고 신청 승인 관리</a></li>-->
+                <!--<li class="active">상세페이지</li>-->
+            </ol>
+        </div>
+        <!-- 컨텐츠 영역 -->
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <div class="box-title">
+                            <h4>검색조건</h4>
+                        </div>
+                        <div class="box-content">
+                            <!-- 검색 옵션 -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control" data-role="bind" data-name="dateConditions" data-type="select"
+                                                    data-ref="dateConditions" data-ref-form-restore="true"
+                                                    id="dateCondition"></select>
+                                        </td>
+                                        <td colspan="3">
+                                            <div class="form-inline">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="fromDate">from</label>
+                                                    <input type="date" class="form-control" id="fromDate">
+                                                </div>
+                                                <div class="form-group">
+                                                    ~
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="toDate">to</label>
+                                                    <input type="date" class="form-control" id="toDate">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>업소번호</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="shopId" placeholder="업소번호">
+                                        </td>
+                                        <td>업주번호</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="shopOwnerId" placeholder="업주번호">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>DSM</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="dsmId" placeholder="DSM">
+                                        </td>
+                                        <td>계약거래번호</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="contractId" placeholder="계약거래번호">
+                                        </td>
+                                        <td>결제일</td>
+                                        <td>
+                                            <select class="form-control" data-role="bind" data-name="withdrawalDates" data-type="select"
+                                                    data-ref="withdrawalDates" data-ref-form-restore="true"
+                                                    id="withdrawalDateId"></select>
+                                        </td>
+                                        <td>빠른광고</td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row option">
+                                <h4 class="col-md-6"></h4>
+                                <div class="col-md-6 text-right">
+                                    <button type="button" class="btn btn-default" id="btn-init-search">검색조건 초기화</button>
+                                    <button type="button" class="btn btn-info" id="btn-search">검색</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box-content">
+                            <!-- 검색 결과 -->
+                            <div class="tab-content">
+                                <div class="table-responsive">
+                                    <ul class="nav nav-tabs">
+                                        <li role="presentation" class="status-tab active"><a href="#" data-status="WAIT_FOR_APPROVAL">대기</a></li>
+                                        <li role="presentation" class="status-tab"><a href="#" data-status="REJECTED">반려</a></li>
+                                        <li role="presentation" class="status-tab"><a href="#" data-status="APPROVED">완료</a></li>
+                                        <li role="presentation" class="status-tab"><a href="#" data-status="CANCELED">취소</a></li>
+                                    </ul>
+                                    <div id="deal-list-wrapper"></div>
+                                </div>
+                                <!-- 페이지네이션 -->
+                                <div class="pager-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

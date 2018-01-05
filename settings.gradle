@@ -1,0 +1,4 @@
+rootProject.name = 'atf'
+
+include 'atf-api'
+include 'atf-service'

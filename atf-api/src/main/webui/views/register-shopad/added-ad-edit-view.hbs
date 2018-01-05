@@ -1,0 +1,146 @@
+<div class="popup container">
+    <div class="modal-header-right">
+        <h4 class="modal-title">{{adShopName}} 정보 수정</h4>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                class="sr-only">Close</span></button>
+    </div>
+    <div class="modal-body-right">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-content">
+                    <div class="form-horizontal row">
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-3 control-label">광고 상품명</label>
+                            <div class="form-group form-inline">
+                                <select id="editShopAdKindId" class="form-control" data-role="bind"
+                                        data-name="shopAdKindsList" data-type="select"
+                                        data-ref="shopAdKindsList"
+                                        data-ref-form-restore="true"></select>
+                            </div>
+                        </div>
+                        <div class="form-group  col-xs-6">
+                            <label class="col-xs-3 control-label">신규 아이콘</label>
+                            <div class="form-group form-inline">
+                                <input name="editEnableNewIcon" type="checkbox" data-role="bind"
+                                       id="editEnableNewIcon"
+                                       data-type="toggle"
+                                       data-name="editEnableNewIcon" data-toggle="toggle"
+                                       data-height="30px"
+                                       value="true"
+                                       data-width="100px"/>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal row">
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-3 control-label">광고 업소명</label>
+                            <div class="form-group form-inline">
+                                <input id="editAdShopName" class="form-control" data-role="bind"
+                                       data-name="adShopName"
+                                       data-ref="adShopName" data-type="input-text"
+                                       value="{{shopName}}"/>
+                            </div>
+                        </div>
+                        <div class="form-group  col-xs-6">
+                            <label class="col-xs-3 control-label">광고 카테고리</label>
+                            <div class="form-group col-xs-5">
+                                <select class="form-control"
+                                        id="editAdShopMenuCategoryId"
+                                        data-role="bind" data-name="adShopMenuCategoryName"
+                                        data-type="select" data-ref="adShopMenuCategoryName"
+                                        data-ref-form-restore="true"></select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal row">
+                        <div class="form-row">
+                            <label class="ad-address-label control-label">광고 주소</label>
+                            <div class="form-inline col-xs-1">
+                                <button type="button" id="btn-search-address"
+                                        class="btn btn-primary btn-sm ">주소찾기
+                                </button>
+                            </div>
+                            <div class="form-group col-xs-7">
+                                <input class="form-control" data-role="bind"
+                                       data-ref="fullTextJibun" data-name="fullTextJibun"
+                                       data-type="input-text"
+                                       value="{{fullTextJibun}}" id="editAddress"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal row">
+                    <div class="form-group col-xs-12">
+                        <div class="form-group form-inline">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-8">
+                                <label for="adProduct" class="col-lg-2 control-label">위도</label>
+                                <div class="form-group col-lg-2">
+                                    <div class="form-inline">
+                                        <input class="form-control" data-role="bind"
+                                               id="editLatitude"
+                                               data-ref="latitude" data-name="latitude"
+                                               data-type="input-text"
+                                               value="{{latitude}}"/>
+                                    </div>
+                                </div>
+
+                                <label for="contract" class="col-lg-2 control-label">경도</label>
+                                <div class="col-lg-2">
+                                    <div class="form-inline">
+                                        <input class="form-control" data-role="bind"
+                                               id="editLongitude"
+                                               data-ref="longitude" data-name="longitude"
+                                               data-type="input-text"
+                                               value="{{longitude}}"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10">
+                        <div class="form-row">
+                            <label class="col-xs-12">광고 신청 목록의 광고 보기</label>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="editOnlyAdList" type="checkbox" data-role="bind" id="editOnlyAdList"
+                                           data-type="toggle"
+                                           data-name="editOnlyAdList" data-toggle="toggle" data-height="30px"
+                                           value="true"
+                                           data-width="100px"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal row">
+                    <div class="col-sm-1"></div>
+                    <div class="form-inline col-sm-9 edit-map-wrapper map-view">
+
+                    </div>
+                    <div class="form-inline col-sm-3" id="ad-category-list-wrapper">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer-right">
+        <div class="text-right button-wrapper">
+            <button id="btn-confirm" type="button" class="btn btn-default">수정</button>
+            <button id="btn-cancel" type="button" class="btn btn-default">닫기</button>
+        </div>
+    </div>
+</div>

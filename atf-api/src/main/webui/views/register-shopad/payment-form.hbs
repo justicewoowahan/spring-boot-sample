@@ -1,0 +1,54 @@
+<div class="form-horizontal row">
+    <div class="form-group col-xs-6">
+        <label class="col-xs-3 control-label">결제일</label>
+        <div class="form-group form-inline">
+            <div data-role="bind" data-type="input-radio" data-name="withdrawalDates"
+                 data-ref="withdrawalDates"></div>
+            <p data-role="bind" data-name="adStartGuideMessage" data-type="text"></p>
+        </div>
+    </div>
+    <div class="form-group  col-xs-6">
+        <label class="col-xs-3 control-label">결제 수단</label>
+        <div class="form-group  col-xs-8">
+            <div data-type="element-visible" data-role="bind" data-name="existsPaymentMethod"
+                 data-ref="{{existsPaymentMethod}}">
+                <select class="form-control" data-role="bind" data-name="paymentMethods"
+                        data-type="select"
+                        data-ref="paymentMethods" data-ref-form-restore="true"
+                        id="paymentMethodId"></select>
+            </div>
+            <div data-type="element-visible" data-role="bind" data-name="nonExistsPaymentMethod"
+                 data-ref="{{nonExistsPaymentMethod}}">
+                <button type="button" class="btn btn-primary btn-sm" id="btn-register-payment">결제 수단
+                    등록하기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-horizontal row">
+    <div class="form-group col-xs-6">
+        <label class="col-xs-3 control-label">빠른광고</label>
+        <div class="form-group form-inline">
+            <label>
+                <input name="useQuickAd" type="checkbox" data-role="bind" id="useQuickAd"
+                       data-type="toggle"
+                       data-name="useQuickAd" data-toggle="toggle" data-height="30px"
+                       value="true"
+                       data-width="100px"/>
+            </label>
+        </div>
+    </div>
+    <div class="form-group  col-xs-6">
+        <label class="col-xs-3 control-label">광고 시작 요청일</label>
+        <div class="form-group form-inline">
+            <div data-role="bind" data-type="input-radio" data-name="creditCardTypes"
+                 data-ref="creditCardTypes"></div>
+
+            <div data-name="adStartDate" data-role="bind" data-type="datepicker"
+                 data-ref="adStartDate"></div>
+        </div>
+    </div>
+</div>
